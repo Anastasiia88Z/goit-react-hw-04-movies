@@ -6,6 +6,10 @@ import Loader from './components/Loader/Loader.jsx';
 
 const AsyncHomePage = lazy(() => import('../src/views/HomePage/HomePage.jsx'));
 
+const AsyncMoviesPage = lazy(() =>
+  import('../src/views/MoviesPage/MoviesPage.jsx'),
+);
+
 function App() {
   return (
     <Container>
@@ -14,6 +18,7 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Switch>
           <Route path="/" exact component={AsyncHomePage} />
+          <Route path="/movies" exact component={AsyncMoviesPage} />
         </Switch>
       </Suspense>
     </Container>
