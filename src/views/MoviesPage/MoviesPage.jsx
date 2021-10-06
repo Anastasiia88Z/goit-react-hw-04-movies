@@ -74,8 +74,8 @@ export default function MoviesPage() {
                   src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                   alt={movie.original_title ?? movie.name}
                 />
-                <p className={s.p}>{movie.title}</p>
               </NavLink>
+              <p className={s.p}>{movie.title}</p>
             </li>
           ))}
         </ul>

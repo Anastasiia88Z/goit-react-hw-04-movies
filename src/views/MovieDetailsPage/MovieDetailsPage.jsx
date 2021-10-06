@@ -44,36 +44,35 @@ export default function MovieDetailsPage() {
 
   return (
     <div>
-      <button type="button" onClick={goBack} className={s.button}>
-        Go back
-      </button>
+      {movie && (
+        <div className={s.div}>
+          <button type="button" onClick={goBack} className={s.button}>
+            Go back
+          </button>
 
-      <div className={s.div}>
-        <div className={s.movie_card}>
-          <img
-            className={s.img}
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            alt={movie.original_title}
-          />
+          <div className={s.movie_card}>
+            <img
+              className={s.img}
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              alt={movie.original_title}
+            />
 
-          <div className={s.movie_info}>
-            <h2 className={s.h2}>{movie.title}</h2>
+            <div className={s.movie_info}>
+              <h1 className={s.h1}>{movie.title}</h1>
+              <p className={s.p}>{movie.vote_average}</p>
 
-            <p className={s.p}>{movie.vote_average}</p>
+              <h2 className={s.h2}>Overview:</h2>
+              <p className={s.p}>{movie.overview}</p>
 
-            <h3 className={s.h3}>Overview:</h3>
-            <p className={s.p}>{movie.overview}</p>
+              <h2 className={s.h2}>Genres: </h2>
+              <p className={s.p}>
+                {movie.genres.map(genre => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
+              </p>
 
-            <h3 className={s.h3}>Genres: </h3>
-            <ul className={s.li}>
-              {movie.genres.map(genre => (
-                <li key={genre.id}>{genre.name}</li>
-              ))}
-            </ul>
+              <h2 className={s.h2}>Additional information: </h2>
 
-            <h3 className={s.h3}>Additional informayion: </h3>
-
-            <div className={s.links}>
               <NavLink
                 className={s.link}
                 to={{
@@ -83,6 +82,7 @@ export default function MovieDetailsPage() {
               >
                 Cast
               </NavLink>
+
               <NavLink
                 className={s.link}
                 to={{
@@ -95,19 +95,19 @@ export default function MovieDetailsPage() {
             </div>
           </div>
         </div>
-      </div>
-      <Suspense>
-        fallback=
-        {
+      )}
+      <Suspense
+        fallback={
           <Loader
             type="Puff"
-            color="#a52a62"
-            height={200}
-            width={200}
+            color="#00BFFF"
+            height={160}
+            width={160}
             timeout={5000}
             className={s.loader}
           />
         }
+      >
         <Route path={`${path}/cast`}>
           <Cast movieId={movieId} />
         </Route>
