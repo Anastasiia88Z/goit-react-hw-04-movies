@@ -1,0 +1,84 @@
+.div {
+  padding: 15px;
+  background-color: ligth-rose;
+  max-width: 900px;
+}
+
+.movie_card {
+  display: flex;
+  box-shadow: 5px 6px 9px rgb(248, 8, 8);
+  margin-bottom: 30px;
+}
+
+.movie_info {
+  padding: 10px 25px;
+}
+
+.button {
+  display: block;
+  margin: 20px;
+  border: none;
+  padding: 20px;
+  font-size: 20px;
+  color: black;
+  width: 400px;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #a52a62;
+}
+
+.h2 {
+  color: #a52a62;
+  font-weight: 400;
+  text-align: left;
+  font-size: 40px;
+  margin: 30px 0 0 0;
+  padding: 0 0 0 40px;
+  letter-spacing: 1px;
+}
+
+.img {
+  display: block;
+  max-width: 320px;
+  height: auto;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.li {
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+  color: black;
+}
+
+.p {
+  color: black;
+  font-size: 18px;
+  padding: 0 40px 0 40px;
+  letter-spacing: 1px;
+  margin: 10px 0 10px 0;
+  line-height: 20px;
+}
+
+.links {
+  margin-top: 40px;
+  font-weight: 500;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 40px 0 40px;
+  font-size: 18px;
+}
+.link:hover {
+  color: #a52a62;
+}

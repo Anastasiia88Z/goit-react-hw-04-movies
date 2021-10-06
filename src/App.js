@@ -10,6 +10,10 @@ const AsyncMoviesPage = lazy(() =>
   import('../src/views/MoviesPage/MoviesPage.jsx'),
 );
 
+const AsyncMovieDetailsPage = lazy(() =>
+  import('../src/views/MovieDetailsPage/MovieDetailsPage.jsx'),
+);
+
 function App() {
   return (
     <Container>
@@ -19,6 +23,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={AsyncHomePage} />
           <Route path="/movies" exact component={AsyncMoviesPage} />
+          <Route path="/movies/:movieId" component={AsyncMovieDetailsPage} />
+          <Route component={AsyncHomePage} />
         </Switch>
       </Suspense>
     </Container>

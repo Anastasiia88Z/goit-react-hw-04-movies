@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import LoadMoreBtnClick from '../../components/LoadMoreBtn/LoadMoreBtn';
-import s from './MoviesPage.module.css';
+import s from '../HomePage/HomePage.module.css';
 
 export default function MoviesPage() {
   const { url } = useRouteMatch();
@@ -80,7 +80,7 @@ export default function MoviesPage() {
           ))}
         </ul>
       )}
-      {showButton && <loadMoreBtnClick onClick={loadMoreBtnClick} />}
+      {showButton && <LoadMoreBtnClick onClick={loadMoreBtnClick} />}
     </div>
   );
 }
