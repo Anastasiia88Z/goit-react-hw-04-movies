@@ -12,17 +12,17 @@ import * as movieApi from '../../services/movieApi';
 import Loader from '../../components/Loader/Loader';
 import s from './MovieDetailsPage.module.css';
 
-const Cast = lazy(() => import('../Cast/Cast'));
+const AsyncCast = lazy(() => import('../Cast/Cast'));
 
-const Reviews = lazy(() => import('../Reviews/Reviews'));
+const AcyncReviews = lazy(() => import('../Reviews/Reviews'));
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const { url, path } = useRouteMatch();
 
   const [movie, setMovie] = useState(null);
-  const location = useLocation();
   const history = useHistory();
+  const location = useLocation();
   const locationFrom = location?.state?.from?.location;
 
   useEffect(() => {
@@ -32,7 +32,6 @@ export default function MovieDetailsPage() {
         setMovie(data);
       })
       .catch(error => {
-        console.log(error);
         history.push(locationFrom ?? '/movies');
         toast.error('Sorry this movie not found');
       });
@@ -109,10 +108,10 @@ export default function MovieDetailsPage() {
         }
       >
         <Route path={`${path}/cast`}>
-          <Cast movieId={movieId} />
+          <AsyncCast movieId={movieId} />
         </Route>
         <Route path={`${path}/reviews`}>
-          <Reviews movieId={movieId} />
+          <AcyncReviews movieId={movieId} />
         </Route>
       </Suspense>
     </div>

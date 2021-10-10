@@ -1,5 +1,5 @@
-const Base_URL = 'https://api.themoviedb.org/3';
-const Api_key = '153b5019f15656e7942787ff6808d390';
+const BASE_URL = 'https://api.themoviedb.org/3';
+const API_KEY = '153b5019f15656e7942787ff6808d390';
 
 async function fetchMovies(url = '', config = {}) {
   const response = await fetch(url, config);
@@ -10,27 +10,27 @@ async function fetchMovies(url = '', config = {}) {
 }
 
 export function fetchPopularMovie() {
-  return fetchMovies(`${Base_URL}/trending/all/day?api_key=${Api_key}`);
+  return fetchMovies(`${BASE_URL}/trending/all/day?api_key=${API_KEY}`);
 }
 
 export function fetchMovieById(movieId) {
-  return fetchMovies(`${Base_URL}/movie/${movieId}?api_key=${Api_key}`);
+  return fetchMovies(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
 }
 
 export function fetchCastMovie(movieId) {
   return fetchMovies(
-    `${Base_URL}/movie/${movieId}/credits?api_key=${Api_key}&language=en-US`,
+    `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`,
   );
 }
 
 export function fetchMovieReviews(movieId) {
   return fetchMovies(
-    `${Base_URL}/movie/${movieId}/reviews?api_key=${Api_key}&language=en-US&page=1`,
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
   );
 }
 
 export function fetchMovieByName(searchName, page) {
   return fetchMovies(
-    `${Base_URL}/search/movie?api_key=${Api_key}&page=${page}&query=${searchName}&language=en-US&page=1&include_adult=false`,
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&page=${page}&query=${searchName}&language=en-US&page=1&include_adult=false`,
   );
 }
